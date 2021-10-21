@@ -55,7 +55,8 @@ public class CrearXml {
 	      TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	      Transformer transformer = transformerFactory.newTransformer();
 	      DOMSource source = new DOMSource(doc);
-	      StreamResult result = new StreamResult(new File( pullapart.path + ".xml"));
+	      String nombreArchivo =nombre.substring(0,nombre.lastIndexOf("."));
+	      StreamResult result = new StreamResult(new File( pullapart.ruta + nombreArchivo +".xml"));
 	      transformer.transform(source, result);
 	      
 	    } catch (ParserConfigurationException pce) {
