@@ -62,9 +62,10 @@ public Separar(String path, int partes, String destino) {
 	                System.out.println("Creacion en -> "+ splitFile.getAbsolutePath());
 	            }
 
-	            int i = 01;
+	            int i = 1;
+	            String fileName = file.getName();
 	            InputStream inputStream = new FileInputStream(file);
-	            String videoFile = splitFile.getAbsolutePath() +"\\"+ String.format("%02d", i) +"_"+ file.getName(); 
+	            String videoFile = splitFile.getAbsolutePath() +"\\"+ i +"_"+ file.getName(); 
 	            OutputStream outputStream = new FileOutputStream(videoFile);
 	            System.out.println("Lugar de la separacion "+ videoFile);
 	            int bytes = inputStream.available() ;
@@ -77,8 +78,8 @@ public Separar(String path, int partes, String destino) {
 	                if (splitSize == streamSize) {
 	                    if (i != partes) {
 	                        i++;
-	                        String fileCount = String.format("%02d", i); 
-	                        videoFile = splitFile.getAbsolutePath() +"\\"+ fileCount +"_"+file.getName();
+	                       
+	                        videoFile = splitFile.getAbsolutePath() +"\\"+ i +"_"+file.getName();
 	                        outputStream = new FileOutputStream(videoFile);
 	                        streamSize = 0;
 	                    }
@@ -90,8 +91,6 @@ public Separar(String path, int partes, String destino) {
 	            inputStream.close();
 	            outputStream.close();
 	            System.out.println("Total de partes separadas ->"+ partes);
-	            
-	            System.out.println(ruta);
 	            CrearXml.crear(ruta, partes, bytes, nombre);
 	            
 	            

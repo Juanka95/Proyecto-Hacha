@@ -15,7 +15,7 @@ public class CrearXml {
 	
 	
 	String path;
-	
+	String ruta;
 	
 		
 	public static void crear(String ruta,int partes, int bytes,String nombre){
@@ -55,7 +55,9 @@ public class CrearXml {
 	      TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	      Transformer transformer = transformerFactory.newTransformer();
 	      DOMSource source = new DOMSource(doc);
-	      StreamResult result = new StreamResult(new File( pullapart.path + ".xml"));
+	      pullapart.path = pullapart.path.substring(0,pullapart.path.lastIndexOf(".")+1);
+	      StreamResult result = new StreamResult(new File( pullapart.path + "xml"));
+	      
 	      transformer.transform(source, result);
 	      
 	    } catch (ParserConfigurationException pce) {

@@ -139,7 +139,7 @@ public class fusion extends JDialog {
 		                    Element eElement = (Element) nNode;
 		                    String ruta = null;
 		                    String nombre = eElement.getElementsByTagName("Nombre").item(0).getTextContent();
-		                    int partes = Integer.parseInt(((Document) eElement).getElementsByTagName("partes").item(0).getTextContent());
+		                    int partes = Integer.parseInt(eElement.getElementsByTagName("partes").item(0).getTextContent());
 //		                    int bytes = Integer.parseInt(((Document) eElement).getElementsByTagName("bytes").item(0).getTextContent());
 		               
 		                    Fusionar(partes, ruta, nombre);

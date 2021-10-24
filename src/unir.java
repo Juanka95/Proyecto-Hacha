@@ -37,10 +37,10 @@ public class unir {
                     String nombre = eElement.getElementsByTagName("Nombre").item(0).getTextContent();
                     
                     int partes = Integer.parseInt(eElement.getElementsByTagName("partes").item(0).getTextContent());
-//                    int bytes = Integer.parseInt(((Document) element).getElementsByTagName("bytes").item(0).getTextContent());
+                    int bytes = Integer.parseInt( eElement.getElementsByTagName("bytes").item(0).getTextContent());
                    
                    
-                    Fusionar(partes, ruta, nombre);
+                    Fusionar(partes,bytes, ruta, nombre);
                 }
             }
         }catch(IOException e) {
@@ -50,7 +50,7 @@ public class unir {
 
     
     
-    public static void Fusionar(int partes, String ruta, String nombre) {
+    public static void Fusionar(int partes,int bytes, String ruta, String nombre) {
 		//Conseguir la extension del archivo
     	
     	String extension = "";
@@ -65,7 +65,7 @@ public class unir {
 			
 			File dirFusion= new File(directorio);
 			
-			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(dirFusion+ "\\Fusion."+ extension));
+			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(dirFusion+ "\\Fusion_"+ extension));
 
 			for(int i=1; i<=partes; i++) {
 
