@@ -55,7 +55,7 @@ public class CrearXml {
 	      TransformerFactory transformerFactory = TransformerFactory.newInstance();
 	      Transformer transformer = transformerFactory.newTransformer();
 	      DOMSource source = new DOMSource(doc);
-	      pullapart.path = pullapart.path.substring(0,pullapart.path.lastIndexOf(".")+1);
+	      pullapart.path = pullapart.path.substring(0,pullapart.path.lastIndexOf("")+1);
 	      StreamResult result = new StreamResult(new File( pullapart.path + "xml"));
 	      
 	      transformer.transform(source, result);
