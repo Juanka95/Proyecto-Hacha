@@ -71,7 +71,7 @@ public class unir {
 
 								
 			File f = new File(nombre + "\\" + i +"."+extension);
-			RandomAccessFile raf = new RandomAccessFile(f, "r");
+			RandomAccessFile raf = new RandomAccessFile(f, " ");
 
 			if(f.exists()) {
 			//readWrite(raf, bos, tamanyoCopia);
